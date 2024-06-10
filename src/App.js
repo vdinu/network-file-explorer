@@ -1,17 +1,24 @@
 import './App.css';
-import PrimeReactFileBrowser from './components/PrimeReactFileBrowser';
+import { Explorer } from './pages/explorer/Explorer';
 import { PrimeReactProvider } from 'primereact/api';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <PrimeReactProvider value={{ unstyled: true }}>
-      <div className="App">
-        <header className="App-header">
-          <p>Network File Browser</p>
-        </header>
-      </div>
-      <PrimeReactFileBrowser />
-    </PrimeReactProvider>
+    
+    <BrowserRouter>
+      <PrimeReactProvider value={{ unstyled: true }}>
+        <div className="App">
+          <header className="App-header">
+            <p>Network File Browser</p>
+          </header>
+        </div>
+        
+      </PrimeReactProvider>
+      <Routes>
+        <Route path="*" element={<Explorer />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
