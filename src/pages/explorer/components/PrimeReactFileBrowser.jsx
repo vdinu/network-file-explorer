@@ -3,6 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFolder } from "@fortawesome/free-solid-svg-icons";
+import { faFile } from "@fortawesome/free-regular-svg-icons";
 
 import { addSegment, removeSegment, isRoot } from '../../../commons/UrlUtils';
 
@@ -21,7 +24,9 @@ function PrimeReactFileBrowser() {
 
   const fileTypeIconTemplate = (rowData) => {
     return (
-      rowData.isDirectory ? '□' : ''
+      rowData.isDirectory ?
+      <FontAwesomeIcon icon={faFolder} /> :
+      <FontAwesomeIcon icon={faFile} />
     );
   }
 
@@ -32,7 +37,6 @@ function PrimeReactFileBrowser() {
           rowData.name
     );
   }
-
 
   return (
     <div>
