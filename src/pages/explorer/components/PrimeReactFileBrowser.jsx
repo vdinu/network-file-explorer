@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolder } from "@fortawesome/free-solid-svg-icons";
 import { faFile } from "@fortawesome/free-regular-svg-icons";
 
-import { addSegment, removeSegment, isRoot } from '../../../commons/UrlUtils';
+import { addSegment, removeSegment, isRoot } from '../../../commons/url.utils';
 
 function PrimeReactFileBrowser() {  
   const [files, setFiles] = useState({files: []});
   const location = useLocation();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/files${location.pathname}`)
+    fetch(`/api/files${location.pathname}`)
       .then(response => response.json())
       .then(data => {
         return setFiles({files: data});
